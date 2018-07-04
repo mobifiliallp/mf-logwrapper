@@ -1,0 +1,46 @@
+{
+  "name": "mf-logwrapper",
+  "version": "1.0.0",
+  "description": "Mobifilia Common - Log wrapper",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "Gopal Raichur",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb"
+    ],
+    "rules": {
+      "no-underscore-dangle": "off",
+      "max-len": "off",
+      "object-shorthand": "off",
+      "prefer-destructuring": "off",
+      "no-param-reassign": "off",
+      "no-else-return": "off",
+      "no-prototype-builtins": "off",
+      "no-mixed-operators": [
+        "error",
+        {
+          "allowSamePrecedence": true
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "config": "^1.30.0",
+    "pino": "^4.17.3"
+  }
+}
