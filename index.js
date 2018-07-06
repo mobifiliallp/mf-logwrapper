@@ -9,12 +9,22 @@
 const pino = require('pino');
 const config = require('config');
 
+let configuredLevel = 'info';
+if (config.has('logger.level')) {
+  configuredLevel = config.get('logger.level');
+}
+
 const logger = pino({
-  level: process.env.LOGGER_LEVEL || config.get('logger.level') || 'info',
+  level: process.env.LOGGER_LEVEL || configuredLevel,
 });
 
+let appName;
+if (config.has('appName')) {
+  appName = config.get('appName');
+}
+
 const baseLogger = logger.child({
-  _app: (config.get('appName') || process.argv[1] || process.pid),
+  _app: (appName || process.argv[1] || process.pid),
 });
 module.exports.defaultLogger = baseLogger;
 
