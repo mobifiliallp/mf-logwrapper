@@ -15,9 +15,7 @@ if (config.has('logger')) {
 loggerConfig.level = loggerConfig.level || 'info';
 loggerConfig.enabled = !(loggerConfig.enabled === false);
 
-const logger = pino({
-  loggerConfig,
-});
+const logger = pino(loggerConfig);
 
 let appName;
 if (config.has('appName')) {
