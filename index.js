@@ -1,21 +1,22 @@
 /**
  * Mobifilia Common - Log wrapper.
  *
- * Logging level configured by
- * 1) Reading the environment variable LOGGER_LEVEL.
- * 2) Reading the 'config' value for 'logger.level', the 'config' package should be installed.
- * 3) Defaults to 'info' if none of the above are provided.
+ * Logging level configured by reading the 'logger' key from the configuration.
+ * Enabled by default and level set to 'info' if configuration/values not provided.
  */
 const pino = require('pino');
 const config = require('config');
 
-let configuredLevel = 'info';
-if (config.has('logger.level')) {
-  configuredLevel = config.get('logger.level');
+let loggerConfig = {};
+if (config.has('logger')) {
+  loggerConfig = config.get('logger');
 }
 
+loggerConfig.level = loggerConfig.level || 'info';
+loggerConfig.enabled = !(loggerConfig.enabled === false);
+
 const logger = pino({
-  level: process.env.LOGGER_LEVEL || configuredLevel,
+  loggerConfig,
 });
 
 let appName;
