@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "config": "^1.30.0",
+    "lodash": "^4.17.10",
     "pino": "^4.17.3"
   }
 }

@@ -6,14 +6,16 @@
  */
 const pino = require('pino');
 const config = require('config');
+const _ = require('lodash');
 
-let loggerConfig = {};
+let loggerConfig = {
+  level: 'info',
+  prettyPrint: false,
+};
 if (config.has('logger')) {
-  loggerConfig = config.get('logger');
+  const localConfig = config.get('logger');
+  loggerConfig = _.mergeWith(loggerConfig, localConfig);
 }
-
-loggerConfig.level = loggerConfig.level || 'info';
-loggerConfig.enabled = !(loggerConfig.enabled === false);
 
 const logger = pino(loggerConfig);
 
