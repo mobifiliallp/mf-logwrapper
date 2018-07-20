@@ -1,6 +1,6 @@
 {
   "name": "mf-logwrapper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mobifilia Common - Log wrapper",
   "main": "index.js",
   "scripts": {
