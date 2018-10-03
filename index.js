@@ -139,7 +139,7 @@ class ContextLogger {
           args.unshift({ _fun: functionName });
         } else if (typeof firstArg === 'object' && firstArg !== null) {
           const newFirstArg = Object.assign({}, firstArg);
-          newFirstArg._fun = functionName;
+          newFirstArg._fun = functionName; // eslint-disable-line no-underscore-dangle
           args[0] = newFirstArg;
         }
         this.pinoLogger.debug(...args);
@@ -165,7 +165,7 @@ class ContextLogger {
           args.unshift({ _fun: functionName });
         } else if (typeof firstArg === 'object' && firstArg !== null) {
           const newFirstArg = Object.assign({}, firstArg);
-          newFirstArg._fun = functionName;
+          newFirstArg._fun = functionName; // eslint-disable-line no-underscore-dangle
           args[0] = newFirstArg;
         }
         this.pinoLogger.trace(...args);
